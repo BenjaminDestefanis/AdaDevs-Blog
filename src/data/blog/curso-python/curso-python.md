@@ -1,8 +1,8 @@
 ---
 author: Benjamin Baigorria
 pubDatetime: 2026-03-02T08:00:00Z
-title: "Curso de Python: Lección 1"
-postSlug: curso-python-leccion-1
+title: "Curso Basico de Python"
+postSlug: curso-python
 featured: true
 draft: false
 tags:
