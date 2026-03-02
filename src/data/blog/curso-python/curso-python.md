@@ -3,6 +3,7 @@ author: Benjamin Baigorria
 pubDatetime: 2026-03-02T08:00:00Z
 title: "Curso Basico de Python"
 postSlug: curso-python
+ogImage: "../../../assets/images/python.jpg" # <-- Ruta desde el archivo .md
 featured: true
 draft: false
 tags:
