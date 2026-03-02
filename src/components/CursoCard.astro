@@ -1,0 +1,37 @@
+---
+export interface Props {
+  href: string;
+  title: string;
+  description: string;
+  ogImage?: string;
+  level?: string;
+}
+
+const { href, title, description, ogImage, level = "Básico" } = Astro.props;
+---
+
+<li class="list-none">
+  <a href={href} class="group relative block overflow-hidden rounded-2xl border border-skin-line bg-skin-card p-2 transition-all duration-300 hover:border-skin-accent">
+    
+    <div class="relative aspect-video w-full overflow-hidden rounded-xl">
+      <img 
+        src={ogImage ? ogImage : "/astropaper-og.jpg"} 
+        alt={title}
+        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      <span class="absolute bottom-3 left-3 rounded-full bg-skin-accent px-3 py-1 text-[10px] font-bold uppercase text-skin-inverted">
+        {level}
+      </span>
+    </div>
+
+    <div class="p-4">
+      <h2 class="text-xl font-bold text-skin-base group-hover:text-skin-accent">
+        {title}
+      </h2>
+      <p class="mt-2 text-sm opacity-70 line-clamp-2">
+        {description}
+      </p>
+    </div>
+  </a>
+</li>
