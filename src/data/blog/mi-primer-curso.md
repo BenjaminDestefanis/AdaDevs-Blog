@@ -1,5 +1,5 @@
 ---
-author: Tu Nombre
+author: Benjamin Baigorria
 pubDatetime: 2026-03-01T10:00:00Z
 title: Mi Curso de React Desde Cero
 postSlug: curso-react-leccion-1
@@ -9,6 +9,12 @@ tags:
   - cursos
   - react
 description: Aprende React construyendo proyectos reales.
+slug: curso-react
+
+
+
+
+
 ---
 
 ## Bienvenidos a la Lección 1
