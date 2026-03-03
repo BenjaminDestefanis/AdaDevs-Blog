@@ -4,6 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import "@/styles/global.css";
+import WhastAppButton from "@/components/WhastAppButton.astro";
 
 type Props = {
   title?: string;
@@ -171,6 +172,12 @@ const structuredData = {
     <slot />
 
     <!-- Load full theme logic -->
+     <div class="mt-4">
+      <WhastAppButton 
+        href="https://wa.me/1234567890?text=hello+123"
+        target="_blank"
+      />
+    </div>
     <script src="../scripts/theme.ts"></script>
   </body>
 </html>
