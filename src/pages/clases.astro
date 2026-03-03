@@ -11,7 +11,7 @@ const posts = await getCollection("blog");
 
 // Filtramos los que tienen el tag "cursos" y son los post principales (o "intro") de cada curso
 const cursosPosts = posts.filter(post => 
-  post.data.tags.includes("cursos") && post.data.featured === true
+  post.data.tags.includes("clases") && post.data.featured === true
 );
 ---
 
@@ -19,7 +19,7 @@ const cursosPosts = posts.filter(post =>
 
 <Layout title={`Cursos | ${SITE.title}`}>
   <Header activeNav="cursos" />
-  <Main pageTitle="Academia Ada Devs" pageDesc="Cursos de programación estructurados.">
+  <Main pageTitle="Academia Ada Devs" pageDesc="Elige el mejor acesoramiento, y las mejores clases de apoyo.">
     
     <section class="mt-12">
       {/* SOLO UN BLOQUE UL */}
