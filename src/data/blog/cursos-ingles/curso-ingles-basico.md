@@ -1,0 +1,22 @@
+---
+author: Benjamin Baigorria
+pubDatetime: 2026-03-03T10:00:00Z
+title: "Inglés Básico: Hello World!"
+postSlug: ingles-basico
+featured: true
+tags:
+  - cursos
+  - ingles
+description: "Domina las bases del inglés: saludos, números y cómo presentarte profesionalmente."
+ogImage: "../../../assets/images/ingles.jpg"
+---
+
+## Bienvenido al Curso de Inglés
+En este curso sentaremos las bases para que puedas comunicarte en entornos técnicos y sociales.
+
+### 📚 Temario de hoy:
+1. **Greetings:** Saludos formales e informales.
+2. **Numbers:** Del 1 al 100.
+3. **The Verb To Be:** La columna vertebral del idioma.
+
+> **Tip de estudio:** Intenta configurar tu editor de código (VS Code) en inglés para familiarizarte con los términos técnicos.
