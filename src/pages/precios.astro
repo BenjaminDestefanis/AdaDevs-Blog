@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../config";
+---
+
+<Layout title={`Planes | ${SITE.title}`}>
+  <Header activeNav="precios" />
+  <main id="main-content" class="max-w-5xl mx-auto px-4 py-12">
+    <section class="text-center mb-16">
+      <h1 class="text-4xl font-bold text-skin-accent sm:text-5xl">Elige tu camino en Ada Devs</h1>
+      <p class="mt-4 text-lg opacity-80">Acceso ilimitado a todos los cursos y clases en vivo.</p>
+    </section>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      
+      <div class="border border-skin-line rounded-2xl p-8 flex flex-col bg-skin-card">
+        <h2 class="text-2xl font-bold">Free</h2>
+        <p class="mt-2 opacity-70">Para empezar a curiosear.</p>
+        <div class="my-8">
+          <span class="text-4xl font-bold">$0</span>
+          <span class="opacity-60">/siempre</span>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center">✅ Acceso a cursos básicos</li>
+          <li class="flex items-center">✅ Comunidad en Discord</li>
+          <li class="opacity-50 italic text-sm">❌ Clases grabadas pro</li>
+        </ul>
+        <button class="bg-skin-fill text-skin-base px-6 py-3 rounded-lg font-bold hover:opacity-80 transition">
+          Empezar Gratis
+        </button>
+      </div>
+
+      <div class="border-2 border-skin-accent rounded-2xl p-8 flex flex-col bg-skin-card relative scale-105 shadow-xl">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-skin-accent text-white px-4 py-1 rounded-full text-sm font-bold">POPULAR</span>
+        <h2 class="text-2xl font-bold">Pro Mensual</h2>
+        <p class="mt-2 opacity-70">Acelera tu carrera tech.</p>
+        <div class="my-8">
+          <span class="text-4xl font-bold">$15</span>
+          <span class="opacity-60">/mes</span>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center">✅ Todos los cursos de idiomas</li>
+          <li class="flex items-center">✅ Certificados de finalización</li>
+          <li class="flex items-center">✅ Mentorías grupales</li>
+        </ul>
+        <button class="bg-skin-accent text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition">
+          Suscribirme Pro
+        </button>
+      </div>
+
+      <div class="border border-skin-line rounded-2xl p-8 flex flex-col bg-skin-card">
+        <h2 class="text-2xl font-bold">Pro Anual</h2>
+        <p class="mt-2 opacity-70">El mejor valor para expertos.</p>
+        <div class="my-8">
+          <span class="text-4xl font-bold">$120</span>
+          <span class="opacity-60">/año</span>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center">✅ Todo lo del Plan Pro</li>
+          <li class="flex items-center">✅ 2 Meses de regalo</li>
+          <li class="flex items-center">✅ Acceso anticipado a cursos</li>
+        </ul>
+        <button class="border border-skin-accent text-skin-accent px-6 py-3 rounded-lg font-bold hover:bg-skin-accent hover:text-white transition">
+          Ahorrar Ahora
+        </button>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,64 @@
+---
+interface Props {
+  precio: string;
+  curso: string;
+}
+const { precio, curso } = Astro.props;
+---
+
+<div class="caja-compra">
+  <div class="info">
+    <span class="label">Precio del curso:</span>
+    <span class="precio">{precio}</span>
+  </div>
+  <a href={`/pagos?curso=${encodeURIComponent(curso)}`} class="btn-pagar">
+    Inscribirme ahora
+  </a>
+</div>
+
+<style>
+  .caja-compra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(var(--color-accent), 0.1);
+    border: 2px solid rgba(var(--color-accent), 1);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+    backdrop-filter: blur(10px);
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+  .precio {
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(var(--color-accent), 1);
+  }
+  .btn-pagar {
+    background-color: rgba(var(--color-accent), 1);
+    color: white !important;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-decoration: none !important;
+    transition: transform 0.2s ease;
+  }
+  .btn-pagar:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 640px) {
+    .caja-compra {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
+</style>

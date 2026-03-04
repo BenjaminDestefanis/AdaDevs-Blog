@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Métodos de Pago | Ada Devs">
+  <Header />
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold">Elige tu método de pago</h1>
+      <p class="opacity-70">Estás a un paso de impulsar tu carrera tecnológica.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <div class="lg:col-span-2 space-y-4">
+        
+        <!-- Seccion Credito/Debito --> 
+        <div class="border border-skin-line rounded-xl p-4 bg-skin-card hover:border-skin-accent transition">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg">Tarjeta de Crédito o Débito</h3>
+            <div class="flex gap-2">
+                <div class="flex items-center gap-2">
+                    <Icon name="simple-icons:visa" class="w-12 h-12 text-[#1A1F71] dark:text-white" title="Visa" />
+                    <Icon name="logos:mastercard" class="w-11 h-10 text-[#EB001B]" title="Mastercard" />
+                    <Icon name="logos:apple-pay" class="w-11 h-10 text-[#000000] dark:text-white" />
+                    <Icon name="logos:google-pay" class="w-13 h-10 text-[#5F6368] dark:text-white transition-colors" title="Google Pay" />
+                    <Icon name="logos:stripe" class="w-14 h-10" />
+                    <Icon name="simple-icons:mercadopago" class="w-14 h-10" />
+                    <Icon name="simple-icons:bankofamerica" class="w-10 h-10 text-[#542981]" title="MACH" /> 
+                    <Icon name="simple-icons:target" class="w-10 h-10 text-[#00E1AE]" title="Tenpo" />
+                </div>
+            </div>
+          </div>
+          <p class="text-sm opacity-70 mb-6">Paga de forma segura a través de Stripe (Europa/Global) o Mercado Pago (Latam).</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+             <a href="#" class="flex-1 bg-blue-600 text-white text-center py-3 rounded-lg font-bold hover:bg-blue-700">Pagar con Stripe</a>
+             <a href="#" class="flex-1 bg-sky-500 text-white text-center py-3 rounded-lg font-bold hover:bg-sky-600">Pagar con Mercado Pago</a>
+          </div>
+        </div>
+
+
+        <!-- Seccion Villeteras Birtuales -->
+        <!--  <div class="border border-skin-line rounded-xl p-4 bg-skin-card hover:border-yellow-500/50 transition">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg">Billeteras Virtuales</h3>
+          </div>
+          <p class="text-sm opacity-70 mb-4">Ideal para evitar comisiones bancarias. Aceptamos Binance Pay y Red Polygon.</p>
+          <div class="bg-skin-fill p-4 rounded-lg flex justify-between items-center mb-3">
+            <span class="text-xs font-mono">Binance ID: 87654321</span>
+            <button class="text-skin-accent text-xs font-bold uppercase">Copiar</button>
+          </div>
+          <p class="text-[10px] opacity-50 italic">Una vez realizado el pago, envía tu comprobante por WhatsApp.</p>
+        </div> -->
+
+        <!-- Seccion Criptomonedas -->
+        <div class="border border-skin-line rounded-xl p-4 bg-skin-card hover:border-yellow-500/50 transition">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg">Criptomonedas (USDT / USDC)</h3>
+
+            <div class="flex gap-2">
+                <div class="flex items-center gap-2">
+                    <Icon name="simple-icons:binance" class="w-10 h-10 text-[#F3BA2F]" />
+                    
+                    <Icon name="simple-icons:okx" class="w-10 h-10 text-[#F7931A] text-black dark:text-white"/>
+                    <Icon name="simple-icons:bitcoin" class="w-10 h-10 text-[#F7931A]" />
+                    <Icon name="simple-icons:tether" class="w-10 h-10 text-[#26A17B] "/>
+                    <Icon name="simple-icons:ethereum" class="w-10 h-10 text-[#2775CA]"/>
+                    <Icon name="simple-icons:solana" class="w-10 h-10 text-[#14F195]" title="Solana Network" />
+                </div>
+            </div>
+          </div>
+          <p class="text-sm opacity-70 mb-4">Ideal para evitar comisiones bancarias. Aceptamos Binance Pay y Red Polygon.</p>
+          <div class="bg-skin-fill p-4 rounded-lg flex justify-between items-center mb-3">
+            <span class="text-xs font-mono">Binance ID: 87654321</span>
+            <button class="text-skin-accent text-xs font-bold uppercase">Copiar</button>
+          </div>
+          <p class="text-[10px] opacity-50 italic">Una vez realizado el pago, envía tu comprobante por WhatsApp.</p>
+        </div>
+
+      </div>
+
+      <div class="lg:col-span-1">
+        <div class="sticky top-24 border border-skin-line rounded-xl p-6 bg-skin-card shadow-sm">
+          <h2 class="font-bold text-xl mb-4 pb-4 border-b border-skin-line">Resumen del pedido</h2>
+          
+          <div class="flex justify-between mb-2">
+            <span id="curso-nombre" class="opacity-80">Curso seleccionado</span>
+            <span class="font-bold">$15.00</span>
+          </div>
+          
+          <div class="flex justify-between text-sm mb-6 opacity-60">
+            <span>Impuestos / Comisiones</span>
+            <span>Incluidos</span>
+          </div>
+
+          <div class="flex justify-between text-xl font-extrabold border-t border-skin-line pt-4 mb-6">
+            <span>Total a pagar</span>
+            <span class="text-skin-accent">$15.00</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-xs opacity-70">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Acceso inmediato tras validación
+            </div>
+            <div class="flex items-center gap-2 text-xs opacity-70">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Certificado de finalización
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<!-- <script>
+  // Script para capturar el nombre del curso de la URL
+  const params = new URLSearchParams(window.location.search);
+  const curso = params.get('curso');
+  if (curso) {
+    document.getElementById('curso-nombre').innerText = decodeURIComponent(curso);
+  }
+</script> -->
