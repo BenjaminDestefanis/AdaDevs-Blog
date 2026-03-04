@@ -1,29 +1,30 @@
 ---
 import { Image } from "astro:assets"; // Importante
+import imagenPorDefecto from "../assets/images/error.jpg"
 
 const { href, title, description, ogImage, level = "Principiante" } = Astro.props;
+
+const imageSrc = ogImage || imagenPorDefecto;
 ---
 
 <li class="list-none border border-skin-line rounded-xl overflow-hidden bg-skin-card">
   <a href={href} class="group block">
     <div class="relative aspect-video">
-      {ogImage ? (
+      {
         <Image 
-          src={ogImage} 
+          src={imageSrc} 
           alt={title} 
           width={400} 
           height={225} 
           class="h-full w-full object-cover transition-transform group-hover:scale-105"
         />
-      ) : (
-        <div class="h-full w-full bg-gray-700 flex items-center justify-center">
-          <span>Sin imagen</span>
-        </div>
-      )}
+     }
     </div>
     <div class="p-4">
       <h2 class="text-xl font-bold text-skin-accent">{title}</h2>
       <p class="text-sm opacity-80 line-clamp-2">{description}</p>
     </div>
   </a>
+
+  
 </li>
