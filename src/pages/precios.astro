@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE } from "../config";
+import FAQ from "../components/FAQ.astro";
+import TrustBar from "../components/TrustBar.astro"
 ---
 
 <Layout title={`Planes | ${SITE.title}`}>
@@ -68,6 +70,9 @@ import { SITE } from "../config";
       </div>
 
     </div>
+
+    <TrustBar />
+    <FAQ />
   </main>
   <Footer />
 </Layout>

@@ -4,6 +4,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 import { Icon } from "astro-icon/components";
+import TrustBar from "@/components/TrustBar.astro";
+import FAQ from "@/components/FAQ.astro";
 ---
 
 <Layout title="Métodos de Pago | Ada Devs">
@@ -83,7 +85,7 @@ import { Icon } from "astro-icon/components";
 
       </div>
 
-      <div class="lg:col-span-1">
+      <!-- <div class="lg:col-span-1">
         <div class="sticky top-24 border border-skin-line rounded-xl p-6 bg-skin-card shadow-sm">
           <h2 class="font-bold text-xl mb-4 pb-4 border-b border-skin-line">Resumen del pedido</h2>
           
@@ -113,10 +115,49 @@ import { Icon } from "astro-icon/components";
             </div>
           </div>
         </div>
+      </div> -->
+
+      <div class="lg:col-span-1 h-full"> <div class="flex flex-col h-full border border-skin-line rounded-xl p-6 bg-skin-card shadow-sm">
+    
+          <h2 class="font-bold text-xl mb-4 pb-4 border-b border-skin-line">Resumen del pedido</h2>
+          
+          <div class="flex justify-between mb-2">
+            <span id="curso-nombre" class="opacity-80">Curso seleccionado</span>
+            <span class="font-bold">$15.00</span>
+          </div>
+          
+          <div class="flex justify-between text-sm mb-6 opacity-60">
+            <span>Impuestos / Comisiones</span>
+            <span>Incluidos</span>
+          </div>
+
+          <div class="flex-grow"></div>
+
+          <div class="flex justify-between text-xl font-extrabold border-t border-skin-line pt-4 mb-6">
+            <span>Total a pagar</span>
+            <span class="text-skin-accent">$15.00</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-xs opacity-70">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Acceso inmediato tras validación
+            </div>
+            <div class="flex items-center gap-2 text-xs opacity-70">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Certificado de finalización
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
+
+    <TrustBar />
   </main>
+
+  
+  <FAQ />
   <Footer />
 </Layout>
 

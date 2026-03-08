@@ -12,7 +12,8 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
 
-import WhastAppButton from "../components/WhastAppButton.astro";
+import Countdown from "@/components/Countdown.astro";
+
 
 const posts = await getCollection("blog");
 
@@ -22,34 +23,49 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
 <Layout>
+
+  <!-- Futuro countdown -->
+  <!-- <Countdown 
+    deadline="2026-03-30T23:59:59" 
+    title="¡PREVENTA EXCLUSIVA! EL DESCUENTO TERMINA EN:" 
+  /> -->
+  
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        Academia de Desarrollo
       </h1>
-      <a
+      <!-- <a
         target="_blank"
         href="/rss.xml"
         class="inline-block"
         aria-label="rss feed"
         title="RSS Feed"
-      >
-        <IconRss
+      > -->
+        <!-- <IconRss
           width={20}
           height={20}
           class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
+        /> -->
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+      <p class="text-lg opacity-90 leading-relaxed">
+        "Domina las tecnologías que el mercado exige hoy. En <strong>Ada Devs</strong> fusionamos la teoría técnica con la práctica del mundo real. Accede a formación de alto nivel, resuelve tus dudas en tiempo real y obtén la confianza necesaria para liderar proyectos tecnológicos desde el primer día."
       </p>
-      <p class="mt-2">
+
+      <section class="py-10 text-center px-4 italic">
+        <div class="max-w-4xl mx-auto">
+          <p class=" ">
+            "La ciencia de la computación trata sobre la 'imaginación', tanto como sobre la 'lógica'."
+          </p>
+          <p class="mt-3 text-skin-accent font-bold tracking-widest uppercase text-sm">
+            — Ada Lovelace, Primera Programadora de la Historia
+          </p>
+        </div>
+      </section>
+      <!-- <p class="mt-2">
         Read the blog posts or check
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
@@ -57,8 +73,8 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         >
           README
         </LinkButton> for more info.
-      </p>
-      {
+      </p> -->
+      <!-- {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
           <div class="mt-4 flex max-sm:flex-col sm:items-center">
@@ -66,7 +82,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
             <Socials />
           </div>
         )
-      }
+      } -->
     </section>
 
     {
