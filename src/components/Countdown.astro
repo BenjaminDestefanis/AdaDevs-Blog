@@ -1,0 +1,82 @@
+---
+// Puedes pasarle la fecha límite como prop
+const { deadline = "2026-03-20T23:59:59", title = "LA PREVENTA TERMINA EN:" } = Astro.props;
+---
+
+<div class="w-full bg-red-600 text-white py-2 px-4 shadow-lg overflow-hidden relative group">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4">
+    
+    <p class="font-black tracking-tighter text-sm md:text-base animate-pulse">
+      {title}
+    </p>
+
+    <div class="flex gap-4 font-mono text-xl md:text-2xl font-bold" id="countdown" data-date={deadline}>
+      <div class="flex flex-col items-center">
+        <span id="days">00</span>
+        <span class="text-[10px] uppercase opacity-80 font-sans">Días</span>
+      </div>
+      <span class="opacity-50">:</span>
+      <div class="flex flex-col items-center">
+        <span id="hours">00</span>
+        <span class="text-[10px] uppercase opacity-80 font-sans">Hrs</span>
+      </div>
+      <span class="opacity-50">:</span>
+      <div class="flex flex-col items-center">
+        <span id="minutes">00</span>
+        <span class="text-[10px] uppercase opacity-80 font-sans">Min</span>
+      </div>
+      <span class="opacity-50">:</span>
+      <div class="flex flex-col items-center">
+        <span id="seconds">00</span>
+        <span class="text-[10px] uppercase opacity-80 font-sans">Seg</span>
+      </div>
+    </div>
+
+    <button class="bg-white text-red-600 px-4 py-1 rounded-full text-xs font-bold hover:scale-110 transition-transform shadow-md uppercase">
+      ¡Asegurar Cupo!
+    </button>
+  </div>
+</div>
+
+<script>
+  function updateCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    
+    // 1. Verificamos que el elemento exista de verdad
+    if (!countdownEl || !countdownEl.dataset.date) return;
+
+    const targetDate = new Date(countdownEl.dataset.date).getTime();
+    
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      // 2. Referencias a los SPANs con comprobación de seguridad
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdownEl.innerHTML = "¡OFERTA FINALIZADA!";
+        return;
+      }
+
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // 3. Usamos el encadenamiento opcional (?.) para que TS sea feliz
+      if (daysEl) daysEl.innerText = d.toString().padStart(2, '0');
+      if (hoursEl) hoursEl.innerText = h.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.innerText = m.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.innerText = s.toString().padStart(2, '0');
+    }, 1000);
+  }
+
+  // Correr al cargar y también si hay navegación entre páginas (Astro View Transitions)
+  updateCountdown();
+  document.addEventListener("astro:after-swap", updateCountdown);
+</script>

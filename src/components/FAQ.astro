@@ -1,0 +1,46 @@
+---
+const faqs = [
+  {
+    question: "¿Cómo recibo el acceso al curso tras pagar?",
+    answer: "Una vez confirmado el pago (es instantáneo con Stripe o Mercado Pago), recibirás un correo automático con los accesos a la plataforma y el link al grupo exclusivo."
+  },
+  {
+    question: "¿Puedo pagar con Cuenta RUT?",
+    answer: "¡Sí! Al elegir Mercado Pago, puedes seleccionar la opción 'Webpay' y pagar con tu Cuenta RUT o cualquier tarjeta de débito de bancos chilenos."
+  },
+  {
+    question: "¿Qué pasa si no puedo asistir a una clase en vivo?",
+    answer: "No te preocupes. Todas las clases se graban en alta definición y se suben a la plataforma en menos de 24 horas para que las veas a tu ritmo."
+  },
+  {
+    question: "¿Dan certificado al terminar?",
+    answer: "Sí, al completar todos los módulos y el proyecto final, se emite un certificado digital que puedes compartir en LinkedIn o incluir en tu CV."
+  }
+];
+---
+
+<section class="py-12 px-4 max-w-3xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-8 text-skin-accent">Preguntas Frecuentes</h2>
+  
+  <div class="space-y-4">
+    {faqs.map(faq => (
+      <details class="group border border-skin-line rounded-xl bg-skin-card p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+        <summary class="flex items-center justify-between gap-1.5 font-bold text-skin-base">
+          {faq.question}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <p class="mt-4 leading-relaxed text-sm opacity-80 border-t border-skin-line pt-4">
+          {faq.answer}
+        </p>
+      </details>
+    ))}
+  </div>
+</section>
