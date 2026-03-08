@@ -5,6 +5,7 @@ postSlug: curso-javascript
 ogImage: "../../../assets/images/javascript.jpg" # <-- Ruta desde el archivo .md
 featured: true
 draft: false
+live: true
 
 tags:
     - javascript
