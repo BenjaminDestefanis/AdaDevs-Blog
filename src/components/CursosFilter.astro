@@ -1,0 +1,81 @@
+<div class="flex flex-wrap justify-center gap-4 mb-12">
+  <button class="filter-btn active bg-skin-accent text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-skin-accent/20" data-category="all">
+    Todos
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="novedades">
+    Novedades
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="novedades">
+    Proximamente
+  </button>
+  
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="programacion">
+    Programacion
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="ia">
+    IA
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="idiomas">
+    Idiomas
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="bootcamp">
+    Bootcamps
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="bootcamp">
+    Analisis de Datos
+  </button>
+  <button class="filter-btn bg-skin-card border border-skin-line px-6 py-2 rounded-full font-bold hover:border-skin-accent transition" data-category="bootcamp">
+    Ciencia de Datos
+  </button>
+
+</div>
+
+<script>
+  function setupFilters() {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.course-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 1. Manejar estado visual de los botones
+        buttons.forEach(b => b.classList.remove('bg-skin-accent', 'text-white', 'active'));
+        buttons.forEach(b => b.classList.add('bg-skin-card', 'border-skin-line'));
+        
+        btn.classList.add('bg-skin-accent', 'text-white', 'active');
+        btn.classList.remove('bg-skin-card', 'border-skin-line');
+
+        const category = btn.getAttribute('data-category');
+
+        // 2. Filtrar las cartas
+        cards.forEach(card => {
+          // Animación de salida
+          (card as HTMLElement).style.opacity = '0';
+          (card as HTMLElement).style.transform = 'scale(0.95)';
+
+          setTimeout(() => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              (card as HTMLElement).style.display = 'block';
+              setTimeout(() => {
+                (card as HTMLElement).style.opacity = '1';
+                (card as HTMLElement).style.transform = 'scale(1)';
+              }, 10);
+            } else {
+              (card as HTMLElement).style.display = 'none';
+            }
+          }, 300);
+        });
+      });
+    });
+  }
+
+  // Inicializar
+  setupFilters();
+  // Reinicializar si usas Astro View Transitions
+  document.addEventListener("astro:after-swap", setupFilters);
+</script>
+
+<style>
+  .course-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+</style>

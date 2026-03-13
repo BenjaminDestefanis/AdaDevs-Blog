@@ -82,11 +82,35 @@ const isActive = (path: string) => {
             Tags
           </a>
         </li> -->
-        <li class="col-span-2">
-          <a href="/cursos" class:list={{ "active-nav": isActive("/cursos") }}>
-            Cursos
+
+
+        <li class="col-span-2 relative group dropdown">
+          <a href="/categorias" class:list={{ "active-nav": isActive("/categorias") }}>
+            Categorias
           </a>
+
+          <!-- <button class="flex items-center gap-1 hover:text-skin-accent transition" id="dropdown-button">
+            Cursos
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <ul class="absolute left-0 mt-2 w-48 bg-skin-card border border-skin-line rounded-xl shadow-xl opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all z-50 overflow-hidden" id="dropdown-menu">
+        <li>
+          <a href="/cursos/frontend" class="block px-4 py-3 hover:bg-skin-accent/10 hover:text-skin-accent border-b border-skin-line/50">Frontend Development</a>
         </li>
+        <li>
+          <a href="/cursos/backend" class="block px-4 py-3 hover:bg-skin-accent/10 hover:text-skin-accent border-b border-skin-line/50">Backend & API</a>
+        </li>
+        <li>
+          <a href="/cursos/diseño" class="block px-4 py-3 hover:bg-skin-accent/10 hover:text-skin-accent">Diseño UI/UX</a>
+        </li>
+      </ul> -->
+        </li>
+
+
+
         <li class="col-span-2">
           <a href="/clases" class:list={{ "active-nav": isActive("/clases") }}>
             Clases
@@ -185,3 +209,19 @@ const isActive = (path: string) => {
   // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
 </script>
+
+
+<style>
+
+  #dropdown-menu {
+  transform: translateY(10px); /* Empieza un poco más abajo */
+  transition: all 0.3s ease-out;
+}
+
+.group:hover #dropdown-menu {
+  transform: translateY(0); /* Sube a su posición original */
+  opacity: 1;
+  visibility: visible;
+}
+
+</style>

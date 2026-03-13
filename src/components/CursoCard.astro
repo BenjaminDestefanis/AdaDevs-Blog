@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import imagenPorDefecto from "../assets/images/error.jpg"
 
-const { href, title, description, ogImage, level, live = false } = Astro.props;
+const { href, title, description, ogImage, level, live = false, isNew = false, dataCategory, isComingSoon } = Astro.props;
 
 const imageSrc = ogImage || imagenPorDefecto;
 ---
 
-<li class="list-none border border-skin-line rounded-xl overflow-hidden bg-skin-card">
+<li class="course-card list-none border border-skin-line rounded-xl overflow-hidden bg-skin-card" data-category={dataCategory}>
   <a href={href} class="group block">
     <div class="relative aspect-video">
       
@@ -23,6 +23,21 @@ const imageSrc = ogImage || imagenPorDefecto;
         </div>
       )}
 
+      {isNew && !live && ( 
+        <div class="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-violet-600/90 backdrop-blur-sm px-3 py-1 rounded-full border border-violet-400/50 shadow-lg shadow-violet-500/20">
+          <span class="text-[10px] font-bold text-white tracking-widest uppercase">Novedad</span>
+        </div>
+      )}
+
+      {isComingSoon && (
+        <div class="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 bg-amber-500/90 backdrop-blur-sm px-3 py-1 rounded-md border border-amber-300/50 shadow-lg shadow-amber-600/20">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-[10px] font-black text-white tracking-widest uppercase">Próximamente</span>
+        </div>
+      )}
+
       <Image 
         src={imageSrc} 
         alt={title} 
@@ -34,6 +49,8 @@ const imageSrc = ogImage || imagenPorDefecto;
     <div class="p-4">
       <h2 class="text-xl font-bold text-skin-accent">{title}</h2>
       <p class="text-sm opacity-80 line-clamp-2">{description}</p>
+      <p>{dataCategory}</p>
+      
     </div>
   </a>
 </li>

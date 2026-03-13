@@ -1,0 +1,49 @@
+---
+// src/components/BackToTop.astro
+---
+
+<button
+  id="back-to-top"
+  class="fixed bottom-24 right-6 z-40 translate-y-20 opacity-0 bg-skin-accent/10 backdrop-blur-md border border-skin-accent/30 text-skin-accent p-3 rounded-full shadow-lg transition-all duration-300 hover:bg-skin-accent hover:text-white group"
+  aria-label="Volver al inicio"
+>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" 
+    fill="none" 
+    viewBox="0 0 24 24" 
+    stroke="currentColor"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<script>
+  function setupScroll() {
+    const btn = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        // Mostrar botón
+        btn?.classList.remove("translate-y-20", "opacity-0");
+        btn?.classList.add("translate-y-0", "opacity-100");
+      } else {
+        // Ocultar botón
+        btn?.classList.add("translate-y-20", "opacity-0");
+        btn?.classList.remove("translate-y-0", "opacity-100");
+      }
+    });
+
+    btn?.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  // Inicializar
+  setupScroll();
+  // Reinicializar para View Transitions
+  document.addEventListener("astro:after-swap", setupScroll);
+</script>
