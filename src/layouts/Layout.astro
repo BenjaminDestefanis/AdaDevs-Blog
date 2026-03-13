@@ -5,6 +5,7 @@ import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import "@/styles/global.css";
 import WhastAppButton from "@/components/WhastAppButton.astro";
+import BackToTop from "@/components/BackToTop.astro";
 
 type Props = {
   title?: string;
@@ -179,5 +180,7 @@ const structuredData = {
       />
     </div>
     <script src="../scripts/theme.ts"></script>
+
+    <BackToTop />
   </body>
 </html>

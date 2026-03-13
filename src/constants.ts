@@ -7,6 +7,8 @@ import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconTiktok from "@/assets/icons/IconTiktok.svg";
+import IconInstagram from "@/assets/icons/IconInstagram.svg"
 import { SITE } from "@/config";
 
 interface Social {
@@ -18,10 +20,28 @@ interface Social {
 
 export const SOCIALS: Social[] = [
   {
+    name: "TikTok",
+    href: "https://github.com/satnaing/astro-paper",
+    linkTitle: `${SITE.title} on TikTok`,
+    icon: IconTiktok,
+  },
+  {
+    name: "Instagram",
+    href: "https://github.com/satnaing/astro-paper",
+    linkTitle: `${SITE.title} on Instagram`,
+    icon: IconInstagram,
+  },
+  {
     name: "GitHub",
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.title} on GitHub`,
     icon: IconGitHub,
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/+542664950045",
+    linkTitle: `Enviar WhastApp`,
+    icon: IconWhatsapp,
   },
   {
     name: "X",

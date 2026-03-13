@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Main from "../layouts/Main.astro";
+import { SITE } from "../config";
+import CursoCard from "../components/CursoCard.astro";
+import CursosFilter from "@/components/CursosFilter.astro";
+
+const posts = await getCollection("blog");
+
+// Filtramos los que tienen el tag "cursos" y son los post principales (o "intro") de cada curso
+const cursosPosts = posts.filter(post => 
+  post.data.tags.includes("cursos") && post.data.featured === true
+);
+---
+
+<Layout title={`Categorias | ${SITE.title}`}>
+  <Header activeNav="categorias" />
+  <Main pageTitle="Bootcamps, Cursos y Maestrias" pageDesc="Busca en que quieres desarrollarte.">
+    <CursosFilter />
+    
+    <section class="mt-12">
+      {/* SOLO UN BLOQUE UL */}
+      <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {
+          cursosPosts.map(curso => (
+            <CursoCard
+              href={`/posts/${curso.id}/`}
+              title={curso.data.title}
+              description={curso.data.description}
+              ogImage={curso.data.ogImage}
+              level="Intermedio"
+              live={curso.data.live}
+              dataCategory={curso.data.dataCategory}
+              isNew={curso.data.isNew}
+              isComingSoon={curso.data.isComingSoon}
+
+            />
+          ))
+        }
+      </ul>
+      
+      {cursosPosts.length === 0 && (
+        <div class="text-center py-20">
+          <p class="italic opacity-70">Próximamente lanzaremos nuestros primeros cursos exclusivos.</p>
+        </div>
+      )}
+    </section>
+
+  </Main>
+  <Footer />
+</Layout>

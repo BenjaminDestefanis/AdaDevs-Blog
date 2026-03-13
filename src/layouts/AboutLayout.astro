@@ -5,20 +5,122 @@ import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
+import TechStack from "@/components/TechStack.astro"
+import Certificate from "@/components/Certificate.astro"
 
 type Props = MarkdownLayoutProps<{ title: string }>;
 
 const { frontmatter } = Astro.props;
+
+// Instructores (Datos)
+
+const instructors = [
+  {
+    name: "Benjamin Baigorria",
+    role: "Desarrollador de Software e Instructor",
+    bio: "Especialista en arquitecturas modernas con Astro y React. Apasionado por enseñar código limpio.",
+    skills: ["React", "Astro", "Node.js", "TypeScript"],
+    image: "/images/instructor1.jpg", // Asegúrate de tener las fotos en public/images/
+  },
+  {
+    name: "Marina Villegas",
+    role: "Profesora e Instructora de idiomas.",
+    bio: "Diseñadora con foco en accesibilidad y sistemas de diseño. Convierte ideas complejas en interfaces simples.",
+    skills: ["Instructora", "Español", "Ingles"],
+    image: "/images/instructor2.jpg",
+  }
+  
+]
 ---
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
   <Header />
   <Breadcrumb />
-  <main id="main-content" class="app-layout">
+  <!-- <main id="main-content" class="app-layout">
     <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       <slot />
     </section>
-  </main>
+  </main> -->
+
+
+
+  <section class="max-w-5xl mx-auto px-4 py-20">
+  <div class="text-center mb-20">
+    <h2 class="text-skin-accent uppercase tracking-widest text-sm font-bold mb-3">Nuestra Esencia</h2>
+    <h1 class="text-4xl md:text-5xl font-black mb-6">Impulsando la próxima generación de <span class="text-skin-accent">Devs</span></h1>
+    <p class="text-lg opacity-80 max-w-3xl mx-auto leading-relaxed">
+      En <strong>Ada Devs</strong>, no solo enseñamos sintaxis; enseñamos a pensar. Inspirados por el legado de Ada Lovelace, 
+      fusionamos la lógica técnica con la imaginación creativa para resolver problemas reales del mundo tech. 
+      Nuestra misión es acortar la brecha entre el estudiante y el mundo profesional.
+    </p>
+  </div>
+
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold mb-10 border-l-4 border-skin-accent pl-4">Mentores</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {instructors.map(instructor => (
+        <div class="bg-skin-card border border-skin-line rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-lg hover:border-skin-accent transition-colors duration-300">
+          <div class="sm:w-48 h-56 sm:h-auto bg-gray-800">
+            <img 
+              src={instructor.image} 
+              alt={instructor.name} 
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
+          </div>
+          
+          <div class="p-6 flex-1 flex flex-col">
+            <div>
+              <h3 class="text-xl font-bold text-skin-accent">{instructor.name}</h3>
+              <p class="text-sm font-medium opacity-70 mb-3">{instructor.role}</p>
+              <p class="text-sm opacity-80 leading-relaxed mb-4">
+                {instructor.bio}
+              </p>
+            </div>
+            
+            <div class="mt-auto flex flex-wrap gap-2">
+              {instructor.skills.map(skill => (
+                <span class="text-[10px] bg-skin-accent/10 text-skin-accent px-2 py-1 rounded-md font-bold uppercase tracking-wider">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  <TechStack />
+  <Certificate />
+</section>
+
+
+
+
+
+<div class="mt-1 bg-gradient-to-br from-skin-accent/20 to-transparent rounded-3xl p-8 md:p-12 text-center">
+  
+  <h2 class="text-3xl md:text-4xl font-black mb-4">¿Todo listo para transformar tu carrera?</h2>
+  <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto">
+    Únete a Ada Devs y domina las tecnologías que las empresas buscan hoy. Clases en vivo, proyectos reales y mentoría constante.
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a 
+      href="/precios" 
+      class="bg-skin-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-skin-accent/20"
+    >
+      Ver Planes y Precios
+    </a>
+    <a 
+      href="https://wa.me/tu-numero" 
+      class="bg-white/10 backdrop-blur-sm border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all"
+    >
+      Hablar con un asesor
+    </a>
+  </div>
+</div>
+
+
   <Footer />
 </Layout>
