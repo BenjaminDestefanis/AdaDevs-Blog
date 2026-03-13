@@ -4,6 +4,8 @@ pubDatetime: 2026-03-03T12:00:00Z
 title: "Chino Mandarín: Nivel Inicial"
 postSlug: chino-basico
 featured: true
+dataCategory: idiomas
+isComingSoon : true
 tags:
   - cursos
   - chino

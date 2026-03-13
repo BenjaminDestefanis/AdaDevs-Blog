@@ -1,11 +1,13 @@
 ---
 pubDatetime: 2026-03-02T14:46:00Z
-title: "Curso Basico de Javascript"
+title: "JavaScript + React Avanzado"
 postSlug: curso-javascript
-ogImage: "../../../assets/images/javascript.jpg" # <-- Ruta desde el archivo .md
+ogImage: "../../../assets/images/react.jpg" # <-- Ruta desde el archivo .md
 featured: true
 draft: false
-live: true
+live: false
+isNew: false
+isCommingSoon: false
 
 tags:
     - javascript

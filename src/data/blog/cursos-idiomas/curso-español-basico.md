@@ -4,6 +4,7 @@ pubDatetime: 2026-03-03T11:00:00Z
 title: "Español para el Mundo"
 postSlug: espanol-basico
 featured: true
+dataCategory: idiomas
 tags:
   - cursos
   - espanol
